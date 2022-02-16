@@ -111,7 +111,7 @@ const createTeam = () => {
             addInfo();
         } else {
             let createHTML = generateHTML(team);
-            renderHTML("team.html", createHTML)
+            renderHTML("./dist/team.html", createHTML)
         }
     })
 };
