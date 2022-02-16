@@ -110,8 +110,8 @@ const createTeam = () => {
         if (confirm.addMember === true) {
             addInfo();
         } else {
-            let generateHTML = generateHTML(team);
-            renderHTML("team.html", generateHTML)
+            let createHTML = generateHTML(team);
+            renderHTML("team.html", createHTML)
         }
     })
 };
