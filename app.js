@@ -1,6 +1,7 @@
 //required files
 const inquirer = require('inquirer');
-const makeHTML = require('./lib/html')
+const renderHTML = require('./lib/html');
+const generateHTML = require('./lib/html');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -8,7 +9,9 @@ const Intern = require('./lib/Intern');
 //Empty arrays to add members to 
 let team = [];
 //instructions appearing on console (terminal)
-console.log("Team Contact Generator:\n Answer the following questions to create your Team")
+console.log(
+    "---------------------------Team Contact Generator: ------------------------\n--------Answer the following questions to create your Team Contact!--------"
+    )
 
 //function to add info to team
 const addInfo = () => {
@@ -92,7 +95,7 @@ const addInfo = () => {
             return;
         })
 };
-
+//function to ask if wanting to add team (initial function?)
 const createTeam = () => {
     inquirer.prompt([
         {
@@ -106,10 +109,11 @@ const createTeam = () => {
         if (confirm.addMember === true) {
             addInfo();
         } else {
-            makeHTML(team);
+            console.log(team);
+            generateHTML();
+            renderHTML("team.html, generateHTML(data)")
         }
     })
 };
 
-console.log(makeHTML)
 createTeam();

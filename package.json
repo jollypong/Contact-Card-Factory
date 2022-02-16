@@ -94,6 +94,7 @@
     "fill-range": "^7.0.1",
     "find-up": "^4.1.0",
     "form-data": "^3.0.1",
+    "fs": "^0.0.1-security",
     "fs.realpath": "^1.0.0",
     "function-bind": "^1.1.1",
     "gensync": "^1.0.0-beta.2",
