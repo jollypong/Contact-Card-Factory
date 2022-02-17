@@ -22,55 +22,80 @@ const addInfo = () => {
                 type: 'input',
                 name: 'name',
                 message: "What is the member's name?",
+                validate: nameInput => {
+                    if (nameInput) {
+                        return true;
+                    } else {
+                        console.log ("Cannot create member without name!");
+                        return false; 
+                    }
+                }
             },
             {
                 type: 'input',
                 name: 'id',
-                message: "What is the member's ID?",
+                message: "What is the member's ID? (please input ID number, ID's cannot start with 0)",
+                validate: nameInput => {
+                    if  (isNaN(nameInput)) {
+                        console.log ("Please enter a valid ID number")
+                        return false; 
+                    } else {
+                        return true;
+                    }
+                }
             },
             {
                 type: 'input',
                 name: 'email',
                 message: "What is the member's E-mail?",
+                validate: email => {
+                    valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                    if (valid) {
+                        return true;
+                    } else {
+                        console.log ('Please enter valid form of email!')
+                        return false; 
+                    }
+                }
             },
             {
                 type: 'list',
                 name: 'role',
                 message: "What is the role of this member?",
-                choices: ["Manager", "Engineer", "Intern"]
+                choices: ["Manager", "Engineer", "Intern"],
             },
             //if Manager: 
             {
                 type: "input",
+                name: `officeNumber`,
                 message: `What is the team members office number?`,
                 when: ({ role }) => {
                     if (role === "Manager") {
                         return true;
                     } return false;
                 },
-                name: `officeNumber`,
             },
             //if Engineer
             {
                 type: "input",
+                name: `githubName`,
                 message: `What is the team members github?`,
                 when: ({ role }) => {
                     if (role === "Engineer") {
                         return true;
                     } return false;
                 },
-                name: `githubName`,
             },
             //if Intern
             {
                 type: "input",
+                name: `school`,
                 message: `What is the team members school?`,
                 when: ({ role }) => {
                     if (role === "Intern") {
                         return true;
                     } return false;
                 },
-                name: `school`,
             }
         ]).then((data) => {
             console.log(data);
@@ -96,6 +121,7 @@ const addInfo = () => {
             return;
         })
 };
+
 //function to ask if wanting to add team (initial function?)
 const createTeam = () => {
     inquirer.prompt([
