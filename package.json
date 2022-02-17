@@ -4,7 +4,8 @@
   "description": "## Your Task",
   "main": "index.js",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "test": "tests"
   },
   "devDependencies": {
     "jest": "^27.5.1"
