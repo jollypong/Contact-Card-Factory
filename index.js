@@ -98,23 +98,20 @@ const addInfo = () => {
                 },
             }
         ]).then((data) => {
-            console.log(data);
+
             //switch case for data for each role, then push to team[]
             switch (data.role) {
                 case "Manager":
                     let manager = new Manager(data.name, data.id, data.email, data.officeNumber);
                     team.push(manager);
-                    console.log(team);
                     break;
                 case "Engineer":
                     let engineer = new Engineer(data.name, data.id, data.email, data.githubName);
                     team.push(engineer);
-                    console.log(team);
                     break;
                 case "Intern":
                     let intern = new Intern(data.name, data.id, data.email, data.school);
                     team.push(intern);
-                    console.log(team);
                     break;
             }
             createTeam(); 
@@ -132,7 +129,6 @@ const createTeam = () => {
             default: 'Y',
         }
     ]).then((confirm) => {
-        console.log(confirm);
         if (confirm.addMember === true) {
             addInfo();
         } else {
